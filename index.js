@@ -45,7 +45,7 @@ function freshGame() {
 function updateDisplay () {
   /* set the display message */
   switch (state) {
-  case 0:
+  case 0:ggff
     /* choose who goes first */
     player = choosePlayer();
 
