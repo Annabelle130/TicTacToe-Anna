@@ -1,3 +1,12 @@
+function TTTgame(){
+
+this.player_x = 'x';
+this.player_o = 'o';
+
+this.gameOver = false;
+
+this.turn = 1;
+
 var whoseturn = "x"
 
 document.getElementById("myBtn1").addEventListener("click", play_game1);
@@ -63,3 +72,5 @@ document.getElementById("myBtn9").addEventListener("click", play_game9);
 function play_game9() {
   document.getElementById("TTT9").innerHTML = "X";
 }
+}
+//create new instance of a game
