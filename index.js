@@ -3,6 +3,9 @@ function TTTgame(){
 this.player_x = 'x';
 this.player_o = 'o';
 
+// player needs to go on odd turns ((move%2)==1)
+// need a function to check who the winner is
+
 this.gameOver = false;
 
 this.turn = 1;
@@ -73,4 +76,18 @@ function play_game9() {
   document.getElementById("TTT9").innerHTML = "X";
 }
 }
+function winner(){
+  if ((document.getElementById("TTT1").innerHTML = "x" && document.getElementById("TTT2").innerHTML = "x" && document.getElementById("TTT3").innerHTML = "x") || (document.getElementById("TTT4").innerHTML = "x" && document.getElementById("TTT5").innerHTML = "x" && document.getElementById("TTT6").innerHTML = "x")||(document.getElementById("TTT7").innerHTML = "x" && document.getElementById("TTT8").innerHTML = "x" && document.getElementById("TTT9").innerHTML = "x"))||(
+document.getElementById("TTT1").innerHTML = "x" && document.getElementById("TTT5").innerHTML = "x" && document.getElementById("TTT9").innerHTML = "x")||
+(document.getElementById("TTT1").innerHTML = "x" && document.getElementById("TTT5").innerHTML = "x" && document.getElementById("TTT9").innerHTML = "x") ||
+(document.getElementById("TTT3").innerHTML = "x" && document.getElementById("TTT5").innerHTML = "x" && document.getElementById("TTT7").innerHTML = "x")||(
+document.getElementById("TTT1").innerHTML = "x" && document.getElementById("TTT4").innerHTML = "x" && document.getElementById("TTT7").innerHTML = "x")||(
+document.getElementById("TTT2").innerHTML = "x" && document.getElementById("TTT5").innerHTML = "x" && document.getElementById("TTT8").innerHTML = "x") ||(
+document.getElementById("TTT3").innerHTML = "x" && document.getElementById("TTT6").innerHTML = "x" && document.getElementById("TTT9").innerHTML = "x"){
+     $("p").text("Player X Won!");
+
+  }
+
+
+  }
 //create new instance of a game
