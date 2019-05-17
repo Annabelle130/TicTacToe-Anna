@@ -1,20 +1,38 @@
 @import '~bootstrap/scss/bootstrap';
-.tictactoe {
-    display: grid;
-    grid-template-rows: 150px 150px 150px;
-    grid-template-columns: 150px 150px 150px;
-}
+
+// .tictactoe {
+//   display: grid;
+//   grid-template-rows: 150px 150px 150px;
+//   grid-template-columns: 150px 150px 150px;
+// }
 
 // for some css stylings
 body {
-  display: flex;
-  justify-content: center;
+
+
 }
+
 .cell {
   background: #FFA8D3;
   border: 1px solid #555;
-  display: flex;
   align-items: center;
-  justify-content: center;
+
   color: #FF4848;
+  min-height: 150px;
+  max-height: 150px;
+  width: 32%;
+
+}
+
+#game-board {
+  height: 50%;
+  width: 50%;
+
+
+
+}
+.row {
+
+width: 100%;
+
 }

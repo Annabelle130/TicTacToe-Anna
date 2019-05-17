@@ -1,29 +1,56 @@
 <!DOCTYPE html>
-<html
-<form>
-  <input name="credentials[email]" type="text" value="an@example.email">
-  <input name="credentials[password]" type="password" value="an example password">
-  <input name="credentials[password_confirmation]" type="password" value="an example password">
-</form>
-<form>
-  <input name="credentials[email]" type="text" value="an@example.email">
-  <input name="credentials[password]" type="password" value="an example password">
-</form>
-<form>
-  <input name="passwords[old]" type="password">
-  <input name="passwords[new]" type="password">
-</form>
+<html>
+
+<head>
+  <title>Example</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <!-- Do not add `link` tags-->
+  <link rel="shortcut icon" type="image/x-icon" href="favicon.ico">
+
+  <!-- Do not add `script` tags-->
+  <script src="public/vendor.js" type="text/javascript" charset="utf-8" defer></script>
+  <script src="public/application.js" type="text/javascript" charset="utf-8" defer></script>
+</head>
 
 <body>
 
-  <h2>This is Anna's html table</h2>
+  <h2>This is Anna's Tic Tac Toe Project</h2>
+  <form id="sign-up">
+    <input name="credentials[email]" type="text" value="an@example.email">
+    <input name="credentials[password]" type="password" value="an example password">
+    <input name="credentials[password_confirmation]" type="password" value="an example password">
+    <input type="submit" value="Sign Up" >
+  </form>
+  <form id="sign-in">
+    <input name="credentials[email]" type="text" value="an@example.email">
+    <input name="credentials[password]" type="password" value="an example password">
+    <input type="submit" value="Sign In" >
+  </form>
+  <form id="change-password">
+    <input name="passwords[old]" type="password">
+    <input name="passwords[new]" type="password">
+    <input type="submit" value="Change Password">
+  </form>
 
-  <table style="width:50%">
-    <tr>
-      <th>Column 1</th>
-      <th>Column 2</th>
-      <th>Column 3</th>
-    </tr>
+<div id="game-board" class="container-fluid">
+  <div class="row">
+    <div class="cell col-md-4"></div>
+    <div class="cell col-md-4"></div>
+    <div class="cell col-md-4"></div>
+  </div>
+  <div class = "row">
+    <div class="cell col-md-4"></div>
+    <div class="cell col-md-4"></div>
+    <div class="cell col-md-4"></div>
+  </div>
+  <div class = "row">
+    <div class="cell col-md-4"></div>
+    <div class="cell col-md-4"></div>
+    <div class="cell col-md-4"></div>
+  </div>
+</div>
+  <!-- <table style="width:50%">
     <tr>
       <td><button id="myBtn1">
           <p id="TTT1">Tic Tac Toe</p>
@@ -57,7 +84,7 @@
           <p id="TTT9">Tic Tac Toe</p>
         </button></td>
     </tr>
-  </table>
+  </table> -->
 
 </body>
 
