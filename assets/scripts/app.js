@@ -14,18 +14,60 @@ $(() => {
   $('#sign-out').on('submit', authEvents.onSignOut)
 
   let whoseturn = 'x'
+  const gameArray = ['', '', '', '', '', '', '', '', '']
 
-  function play_game() {
-    if (whoseturn === 'x') {
-      $(event.target).text('x')
-      whoseturn = 'o'
-    } else {
-      $(event.target).append('o')
-      whoseturn = 'x'
+  const checkForWinner = function () {
+    if (gameArray[0] === 'x' && gameArray[1] === 'x' && gameArray[2] === 'x') {
+      console.log('X Won!')
+    } else if (gameArray[3] === 'x' && gameArray[4] === 'x' && gameArray[5] === 'x') {
+      console.log('X Won!')
+    } else if (gameArray[6] === 'x' && gameArray[7] === 'x' && gameArray[8] === 'x') {
+      console.log('X Won!')
+    } else if (gameArray[6] === 'x' && gameArray[7] === 'x' && gameArray[8] === 'x') {
+      console.log('X Won!')
+    } else if (gameArray[0] === 'x' && gameArray[3] === 'x' && gameArray[6] === 'x') {
+      console.log('X Won!')
+    } else if (gameArray[1] === 'x' && gameArray[4] === 'x' && gameArray[7] === 'x') {
+      console.log('X Won!')
+    } else if (gameArray[2] === 'x' && gameArray[5] === 'x' && gameArray[8] === 'x') {
+      console.log('X Won!')
+    } else if (gameArray[0] === 'x' && gameArray[4] === 'x' && gameArray[8] === 'x') {
+      console.log('X Won!')
+    } else if (gameArray[2] === 'x' && gameArray[4] === 'x' && gameArray[6] === 'x') {
+      console.log('X Won!')
+    } else if (gameArray[0] === 'o' && gameArray[1] === 'o' && gameArray[2] === 'o') {
+      console.log('O Won!')
+    } else if (gameArray[3] === 'o' && gameArray[4] === 'o' && gameArray[5] === 'o') {
+      console.log('O Won!')
+    } else if (gameArray[6] === 'o' && gameArray[7] === 'o' && gameArray[8] === 'o') {
+      console.log('O Won!')
+    } else if (gameArray[0] === 'o' && gameArray[3] === 'o' && gameArray[6] === 'o') {
+      console.log('O Won!')
+    } else if (gameArray[1] === 'o' && gameArray[4] === 'o' && gameArray[7] === 'o') {
+      console.log('O Won!')
+    } else if (gameArray[2] === 'o' && gameArray[5] === 'o' && gameArray[8] === 'o') {
+      console.log('O Won!')
+    } else if (gameArray[0] === 'o' && gameArray[4] === 'o' && gameArray[8] === 'o') {
+      console.log('O Won!')
+    } else if (gameArray[2] === 'o' && gameArray[4] === 'o' && gameArray[6] === 'o') {
+      console.log('O Won!')
     }
   }
 
-  $('.cell').on('click', play_game)
+  function playGame () {
+    if (whoseturn === 'x') {
+      $(event.target).text('x')
+      gameArray[$(event.target).data('index')] = 'x'
+      whoseturn = 'o'
+    } else {
+      $(event.target).text('o')
+      gameArray[$(event.target).data('index')] = 'o'
+      whoseturn = 'x'
+    }
+    checkForWinner()
+  }
+
+  $('.cell').on('click', playGame)
 
   // $("myBtn2").on("click", play_game2);
   //
