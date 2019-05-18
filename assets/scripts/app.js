@@ -1,6 +1,7 @@
 'use strict'
 
 const authEvents = require('./auth/events')
+const bookEvents = require('./books/events')
 // use require with a reference to bundle the file and use it in this file
 // const example = require('./example')
 
@@ -12,6 +13,18 @@ $(() => {
   $('#sign-in').on('submit', authEvents.onSignIn)
   $('#change-pw').on('submit', authEvents.onChangePassword)
   $('#sign-out').on('submit', authEvents.onSignOut)
+
+
+
+$(() => {
+  // mount all of our event handlers to the correct DOM elements when the page
+  // has finished loading
+  $('#books-index').on('click', bookEvents.onGetBooks)
+  $('#books-show').on('submit', bookEvents.onGetBook)
+  $('#books-delete').on('submit', bookEvents.onDeleteBook)
+  $('#books-update').on('submit', bookEvents.onUpdateBook)
+  $('#books-create').on('submit', bookEvents.onCreateBook)
+})
 
   let whoseturn = 'x'
   const gameArray = ['', '', '', '', '', '', '', '', '']
