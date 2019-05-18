@@ -4,8 +4,8 @@ const api = require('./api.js')
 const ui = require('./ui.js')
 const getFormFields = require('../../../lib/get-form-fields.js')
 
-const onGetBooks = function () {
-  // make API call to get all of the books
+const onGetGames = function () {
+  // make API call to get all of the games
   api.index()
 
   // if API call is successful then pass the data to the onIndexSuccess function
@@ -15,7 +15,7 @@ const onGetBooks = function () {
     .catch(ui.onError)
 }
 
-const onGetBook = function (event) {
+const onGetGame = function (event) {
   // prevent default submit action to stop the page from refreshing
   event.preventDefault()
 
@@ -33,7 +33,7 @@ const onGetBook = function (event) {
     .catch(ui.onError)
 }
 
-const onDeleteBook = function (event) {
+const onDeleteGame = function (event) {
   // prevent default submit action to stop the page from refreshing
   event.preventDefault()
 
@@ -50,7 +50,7 @@ const onDeleteBook = function (event) {
     .catch(ui.onError)
 }
 
-const onUpdateBook = function (event) {
+const onUpdateGame = function (event) {
   // prevent default submit action to stop the page from refreshing
   event.preventDefault()
 
@@ -68,7 +68,7 @@ const onUpdateBook = function (event) {
     .catch(ui.onError)
 }
 
-const onCreateBook = function (event) {
+const onCreateGame = function (event) {
   // prevent default submit action to stop the page from refreshing
   event.preventDefault()
 
@@ -87,9 +87,9 @@ const onCreateBook = function (event) {
 }
 
 module.exports = {
-  onGetBooks,
-  onGetBook,
-  onDeleteBook,
-  onUpdateBook,
-  onCreateBook
+  onGetGames,
+  onGetGame,
+  onDeleteGame,
+  onUpdateGame,
+  onCreateGame
 }
