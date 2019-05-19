@@ -71,12 +71,14 @@ const onUpdateGame = function (event) {
 const onCreateGame = function (event) {
   // prevent default submit action to stop the page from refreshing
   event.preventDefault()
+  console.log('Function is running!')
 
-  // create a javascript object from the form where the user entered the book
+  // create a javascript object from the form where the user entered the GAME
   // information
   const formData = getFormFields(event.target)
+  console.log(formData)
 
-  // make API call to create one book with the data we grabbed from the form
+  // make API call to create one GAME with the data we grabbed from the form
   api.create(formData)
 
     // if the API call is successful then invoke the onCreateSuccess function

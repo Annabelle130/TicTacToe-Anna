@@ -1,6 +1,7 @@
 'use strict'
 
 const config = require('./../config')
+const store = require('../store')
 
 const index = function () {
   // make GET request to /games
@@ -36,7 +37,10 @@ const create = function (formData) {
   return $.ajax({
     url: config.apiUrl + '/games',
     method: 'POST',
-    data: formData
+    data: formData,
+    headers: {
+      Authorization: 'Token token=' + store.user.token
+    }
   })
 }
 

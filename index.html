@@ -16,6 +16,11 @@
 <body>
 
   <h2>This is Anna's Tic Tac Toe Project</h2>
+  <form id="games-create">
+    <input type="submit" value="create new game">
+  </form>
+
+
   <form id="sign-up">
     <input name="credentials[email]" type="text" value="an@example.email">
     <input name="credentials[password]" type="password" value="an example password">
@@ -68,6 +73,8 @@
           <div id="delete-game-message" class="user-feedback"></div>
   </section>
    <div id="game-display"></div>
+   <div id="create-game-message" class="user-feedback"></div>
+    <div id="error-message" class="user-feedback"></div>
           <!-- <h2>Update One Game</h2>
           <form id="books-update">
             <input required type="number" name="games[id]" id="games-id-update" placeholder="Game ID Here">

@@ -5,19 +5,19 @@ const onIndexSuccess = function (responseData) {
   // interact with it.
   console.log(responseData)
 
-  // empty book-display element so we can replace whatever was there with the
-  // books we get back from the API
-  $('#book-display').html('')
+  // empty game-display element so we can replace whatever was there with the
+  // games we get back from the API
+  $('#game-display').html('')
 
   // loop through API response data
-  responseData.books.forEach(game => {
+  responseData.games.forEach(game => {
     // build HTML element with data
     const gameHTML = (`
       <p>ID: ${game.id}</p>
       <br>
     `)
 
-    // append bookHTML to our book-display element
+    // append gameHTML to our game-display element
     $('#game-display').append(gameHTML)
   })
 }
@@ -27,14 +27,14 @@ const onShowSuccess = function (responseData) {
   // interact with it.
   console.log(responseData)
 
-  // build HTML element with data for one book
+  // build HTML element with data for one game
   const gameHTML = (`
     <h4>Game ID: ${responseData.game.id}</h4>
     <br>
   `)
 
   // replace whatever was in the game-display element with our gameHTML
-  $('#game-display').html(bookHTML)
+  $('#game-display').html(gameHTML)
 
   // reset all forms
   $('form').trigger('reset')
@@ -46,7 +46,7 @@ const onDestroySuccess = function () {
 
   // empty out the game-display element in case it was displaying information
   // about the game we just deleted, replace with a message for the user to get
-  // all the books again.
+  // all the games again.
   $('#game-display').html('Game records have changed! Click the button again to see the list of all the games!')
 
   // add class for success messaging
@@ -64,22 +64,22 @@ const onDestroySuccess = function () {
 }
 
 // const onUpdateSuccess = function (responseData) {
-//   // add success message to our update-book-message element
-//   $('#update-book-message').html('You successfully updated the book')
+//   // add success message to our update-game-message element
+//   $('#update-game-message').html('You successfully updated the game')
 
 // empty out the game-display element in case it was displaying information
-// about the book we just updated, replace with a message for the user to get
-// all the books again.
-// $('#book-display').html('Books have changed! Click "Get All Books" again to see all the books.')
+// about the game we just updated, replace with a message for the user to get
+// all the games again.
+// $('#game-display').html('games have changed! Click "Get All games" again to see all the games.')
 //
 // // add class for success messaging
-// $('#update-book-message').addClass('success')
+// $('#update-game-message').addClass('success')
 
 // use setTimeout to allow the success message to stay for 5 seconds before
 // the message is replaced with '' and the 'success' class is removed
 // setTimeout(() => {
-//   $('#update-book-message').html('')
-//   $('#update-book-message').removeClass('success')
+//   $('#update-game-message').html('')
+//   $('#update-game-message').removeClass('success')
 // }, 5000)
 
 // reset all forms
@@ -91,17 +91,17 @@ const onCreateSuccess = function () {
   $('#create-game-message').html('You started a new game!')
 
   // check if the game-display element is NOT just an empty string
-  // if (!($('#game-display').html() === '')) {
-  //   // if the element is NOT empty it is probably displaying the book
-  //   // information, but we just created a new book!
+  if (!($('#game-display').html() === '')) {
+  //   // if the element is NOT empty it is probably displaying the game
+  //   // information, but we just created a new game!
   //   // we can add a message to let the users know they should request all of
-  //   // the books again to see the newly created book included
-  //   $('#book-display').html('Books have changed! Click "Get All Books" again to see all the books.')
-  // }
-  // $('#book-display').html('')
+  //   // the games again to see the newly created game included
+    $('#game-display').html('games have changed! Click "Get All games" again to see all the games.')
+  }
+  $('#game-display').html('')
 
   // add class for success messaging
-  $('#create-book-message').addClass('success')
+  $('#create-game-message').addClass('success')
 
   // use setTimeout to allow the success message to stay for 5 seconds before
   // the message is replaced with '' and the 'success' class is removed
