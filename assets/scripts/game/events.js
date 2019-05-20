@@ -58,7 +58,6 @@ const onUpdateGame = function (gameArray, boardIndex, cellValue) {
   store.game.cells = gameArray
   console.log(store.game)
 
-
   // create a javascript object from the form where the user entered the book
   // information
   // const formData = getFormFields(event.target)

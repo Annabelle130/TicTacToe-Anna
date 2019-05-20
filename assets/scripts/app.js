@@ -78,14 +78,19 @@ function playGame (event) {
     gameArray[boardIndex] = 'o'
     whoseturn = 'x'
   }
+  if (whoseturn !== 0) {
+    $('#diff-cell').text('Choose a different cell')
+  }
   const cellValue = $(event.target).text()
+  // if (cellValue !== '') {
+  //   $('#diff-cell').text('Choose a different cell')
+  // }
+
   checkForWinner()
   gameEvents.onUpdateGame(gameArray, boardIndex, cellValue)
 }
 
 $('.cell').on('click', playGame)
-
-function gameOver()
 
 // $("myBtn2").on("click", play_game2);
 //

@@ -3,6 +3,7 @@
 const config = require('./../config')
 const store = require('../store')
 
+
 const objGame = {
   'game': {
     'cell': {
@@ -13,7 +14,7 @@ const objGame = {
   }
 }
 
-const getGames = function (formData) {
+const getGames = function(formData) {
   // make GET request to /games
   return $.ajax({
     url: config.apiUrl + '/games',
@@ -25,23 +26,28 @@ const getGames = function (formData) {
   })
 }
 
-const show = function (formData) {
+const show = function(formData) {
   return $.ajax({
     url: config.apiUrl + '/games/' + formData.games.id,
     method: 'GET'
   })
 }
 
-const destroy = function (formData) {
+const destroy = function(formData) {
   return $.ajax({
     url: config.apiUrl + '/games/' + formData.games.id,
     method: 'DELETE'
   })
 }
 
+// function gameOver(boardIndex) {
+//   if (gameArray.length === 9){
+//     console.log('Game Over!')
+//   }
+// }
 const updateGame = function (boardIndex, cellValue) {
   // console.log('updateGame')
-  console.log("store.game: ", store.game)
+  console.log('store.game: ', store.game)
   const id = store.game.id
   return $.ajax({
     url: config.apiUrl + '/games/' + id,
@@ -53,11 +59,13 @@ const updateGame = function (boardIndex, cellValue) {
           'value': cellValue
         },
         'over': false
+      },
+      headers: {
+        Authorization: 'Token  token=' + store.user.token
       }
-    },
-    headers: {
-      Authorization: 'Token  token=' + store.user.token
+
     }
+    // gameOver()
   })
 }
 
