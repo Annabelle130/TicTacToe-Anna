@@ -3,6 +3,7 @@
 const api = require('./api.js')
 const ui = require('./ui.js')
 const getFormFields = require('../../../lib/get-form-fields.js')
+const store = require('../store.js')
 
 const onGetGames = function () {
   // make API call to get all of the games
@@ -50,17 +51,20 @@ const onDeleteGame = function (event) {
     .catch(ui.onError)
 }
 
-const onUpdateGame = function (event) {
+const onUpdateGame = function (gameArray, boardIndex, cellValue) {
   // prevent default submit action to stop the page from refreshing
   console.log('The game has been updated!')
-  event.preventDefault()
+  // event.preventDefault()
+  store.game.cells = gameArray
+  console.log(store.game)
+
 
   // create a javascript object from the form where the user entered the book
   // information
-  const formData = getFormFields(event.target)
+  // const formData = getFormFields(event.target)
 
   // make API call to update one book with the data we grabbed from the form
-  api.update(formData)
+  api.updateGame(boardIndex, cellValue)
 
     // if the API call is successful then invoke the onUpdateSuccess function
     .then(ui.onUpdateSuccess(event.target))
@@ -79,7 +83,7 @@ const onCreateGame = function (event) {
   console.log(formData)
 
   // make API call to create one GAME with the data we grabbed from the form
-  api.create(formData)
+  api.create()
 
     // if the API call is successful then invoke the onCreateSuccess function
     .then(ui.onCreateSuccess)

@@ -66,20 +66,26 @@ const checkForWinner = function () {
   }
 }
 
-function playGame () {
+function playGame (event) {
+  event.preventDefault()
+  const boardIndex = $(event.target).data('index')
   if (whoseturn === 'x') {
     $(event.target).text('x')
-    gameArray[$(event.target).data('index')] = 'x'
+    gameArray[boardIndex] = 'x'
     whoseturn = 'o'
   } else {
     $(event.target).text('o')
-    gameArray[$(event.target).data('index')] = 'o'
+    gameArray[boardIndex] = 'o'
     whoseturn = 'x'
   }
+  const cellValue = $(event.target).text()
   checkForWinner()
+  gameEvents.onUpdateGame(gameArray, boardIndex, cellValue)
 }
 
 $('.cell').on('click', playGame)
+
+function gameOver()
 
 // $("myBtn2").on("click", play_game2);
 //

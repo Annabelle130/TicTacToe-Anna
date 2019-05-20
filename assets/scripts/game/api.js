@@ -3,6 +3,16 @@
 const config = require('./../config')
 const store = require('../store')
 
+const objGame = {
+  'game': {
+    'cell': {
+      'index': 0,
+      'value': 'x'
+    },
+    'over': false
+  }
+}
+
 const getGames = function (formData) {
   // make GET request to /games
   return $.ajax({
@@ -29,21 +39,24 @@ const destroy = function (formData) {
   })
 }
 
-const update = function (formData) {
-  return $.ajax({
-    url: config.apiUrl + '/games/' + formData.games.id,
-    method: 'PATCH',
-    data: formData
-  })
-}
-const updateGame = function(formData) {
+const updateGame = function (boardIndex, cellValue) {
   // console.log('updateGame')
+  console.log("store.game: ", store.game)
+  const id = store.game.id
   return $.ajax({
-    url: config.apiUrl + '/games/' + formData.games.id,
+    url: config.apiUrl + '/games/' + id,
     method: 'PATCH',
-    data: formData,
+    data: {
+      'game': {
+        'cell': {
+          'index': boardIndex,
+          'value': cellValue
+        },
+        'over': false
+      }
+    },
     headers: {
-      Authorization: 'Token token=' + store.user.token
+      Authorization: 'Token  token=' + store.user.token
     }
   })
 }
@@ -52,10 +65,10 @@ const create = function (formData) {
   return $.ajax({
     url: config.apiUrl + '/games',
     method: 'POST',
-    data: formData,
     headers: {
       Authorization: 'Token token=' + store.user.token
     }
+
   })
 }
 

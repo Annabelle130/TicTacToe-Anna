@@ -1,4 +1,5 @@
 'use strict'
+const store = require('../store.js')
 //
 // const onIndexSuccess = function (responseData) {
 //   // log the information we get back from the API so we know how we can
@@ -86,7 +87,8 @@ const onShowSuccess = function (responseData) {
 //   $('form').trigger('reset')
 // }
 
-const onCreateSuccess = function () {
+const onCreateSuccess = function (responseData) {
+  store.game = responseData.game
   // add success message to content
   $('#create-game-message').html('You started a new game!')
 
