@@ -3,11 +3,15 @@
 const config = require('./../config')
 const store = require('../store')
 
-const index = function () {
+const getGames = function (formData) {
   // make GET request to /games
   return $.ajax({
     url: config.apiUrl + '/games',
-    method: 'GET'
+    method: 'GET',
+    data: formData,
+    headers: {
+      Authorization: 'Token token=' + store.user.token
+    }
   })
 }
 
@@ -45,7 +49,7 @@ const create = function (formData) {
 }
 
 module.exports = {
-  index,
+  getGames,
   show,
   destroy,
   update,

@@ -18,7 +18,7 @@ $(() => {
 $(() => {
   // mount all of our event handlers to the correct DOM elements when the page
   // has finished loading
-  $('#games-index').on('click', gameEvents.onGetGames)
+  $('#show-all-games').on('click', gameEvents.onGetGames)
   $('#games-show').on('submit', gameEvents.onGetGame)
   $('#games-delete').on('submit', gameEvents.onDeleteGame)
   $('#games-update').on('submit', gameEvents.onUpdateGame)

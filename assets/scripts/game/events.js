@@ -6,7 +6,7 @@ const getFormFields = require('../../../lib/get-form-fields.js')
 
 const onGetGames = function () {
   // make API call to get all of the games
-  api.index()
+  api.GetGames()
 
   // if API call is successful then pass the data to the onIndexSuccess function
     .then(ui.onIndexSuccess)
