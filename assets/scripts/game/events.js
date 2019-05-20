@@ -52,6 +52,7 @@ const onDeleteGame = function (event) {
 
 const onUpdateGame = function (event) {
   // prevent default submit action to stop the page from refreshing
+  console.log('The game has been updated!')
   event.preventDefault()
 
   // create a javascript object from the form where the user entered the book
@@ -62,12 +63,11 @@ const onUpdateGame = function (event) {
   api.update(formData)
 
     // if the API call is successful then invoke the onUpdateSuccess function
-    .then(ui.onUpdateSuccess)
+    .then(ui.onUpdateSuccess(event.target))
 
     // if the API call fails then run our onError function
     .catch(ui.onError)
 }
-
 const onCreateGame = function (event) {
   // prevent default submit action to stop the page from refreshing
   event.preventDefault()

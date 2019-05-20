@@ -36,6 +36,17 @@ const update = function (formData) {
     data: formData
   })
 }
+const updateGame = function(formData) {
+  // console.log('updateGame')
+  return $.ajax({
+    url: config.apiUrl + '/games/' + formData.games.id,
+    method: 'PATCH',
+    data: formData,
+    headers: {
+      Authorization: 'Token token=' + store.user.token
+    }
+  })
+}
 
 const create = function (formData) {
   return $.ajax({
@@ -52,6 +63,6 @@ module.exports = {
   getGames,
   show,
   destroy,
-  update,
+  updateGame,
   create
 }

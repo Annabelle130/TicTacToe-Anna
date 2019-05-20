@@ -1,26 +1,26 @@
 'use strict'
+//
+// const onIndexSuccess = function (responseData) {
+//   // log the information we get back from the API so we know how we can
+//   // interact with it.
+//   console.log(responseData)
+//
+//   // empty game-display element so we can replace whatever was there with the
+//   // games we get back from the API
+//   $('#game-display').html('')
+//
+//   // loop through API response data
+//   responseData.games.forEach(game => {
+//     // build HTML element with data
+//     const gameHTML = (`
+//       <p>ID: ${game.id}</p>
+//       <br>
+//     `)
 
-const onIndexSuccess = function (responseData) {
-  // log the information we get back from the API so we know how we can
-  // interact with it.
-  console.log(responseData)
-
-  // empty game-display element so we can replace whatever was there with the
-  // games we get back from the API
-  $('#game-display').html('')
-
-  // loop through API response data
-  responseData.games.forEach(game => {
-    // build HTML element with data
-    const gameHTML = (`
-      <p>ID: ${game.id}</p>
-      <br>
-    `)
-
-    // append gameHTML to our game-display element
-    $('#game-display').append(gameHTML)
-  })
-}
+// append gameHTML to our game-display element
+//   $('#game-display').append(gameHTML)
+// })
+// }
 
 const onShowSuccess = function (responseData) {
   // log the information we get back from the API so we know how we can
@@ -40,28 +40,28 @@ const onShowSuccess = function (responseData) {
   $('form').trigger('reset')
 }
 
-const onDestroySuccess = function () {
-  // add success message to our delete-game-message element
-  $('#delete-game-message').html('Game successfully deleted!')
-
-  // empty out the game-display element in case it was displaying information
-  // about the game we just deleted, replace with a message for the user to get
-  // all the games again.
-  $('#game-display').html('Game records have changed! Click the button again to see the list of all the games!')
-
-  // add class for success messaging
-  $('#delete-game-message').addClass('success')
-
-  // use setTimeout to allow the success message to stay for 5 seconds before
-  // the message is replaced with '' and the 'success' class is removed
-  setTimeout(() => {
-    $('#delete-game-message').html('')
-    $('#delete-game-message').removeClass('success')
-  }, 5000)
-
-  // reset all forms
-  $('form').trigger('reset')
-}
+// const onDestroySuccess = function () {
+//   // add success message to our delete-game-message element
+//   $('#delete-game-message').html('Game successfully deleted!')
+//
+//   // empty out the game-display element in case it was displaying information
+//   // about the game we just deleted, replace with a message for the user to get
+//   // all the games again.
+//   $('#game-display').html('Game records have changed! Click the button again to see the list of all the games!')
+//
+//   // add class for success messaging
+//   $('#delete-game-message').addClass('success')
+//
+//   // use setTimeout to allow the success message to stay for 5 seconds before
+//   // the message is replaced with '' and the 'success' class is removed
+//   setTimeout(() => {
+//     $('#delete-game-message').html('')
+//     $('#delete-game-message').removeClass('success')
+//   }, 5000)
+//
+//   // reset all forms
+//   $('form').trigger('reset')
+// }
 
 // const onUpdateSuccess = function (responseData) {
 //   // add success message to our update-game-message element
@@ -135,12 +135,26 @@ const onError = function (err) {
   // reset all forms
   $('form').trigger('reset')
 }
+const onUpdateSuccess = function (formData) {
+  // add success message to our update-book-message element
+  $('#update-game-message').html('Game over')
 
+  // add class for success messaging
+  $('#update-game-message').addClass('success')
+
+  // use setTimeout to allow the success message to stay for 5 seconds before
+  // the message is replaced with '' and the 'success' class is removed
+  setTimeout(() => {
+    $('#update-game-message').html('')
+    $('#update-game-message').removeClass('success')
+  }, 5000)
+
+  // reset all forms
+  $('form').trigger('reset')
+}
 module.exports = {
-  onIndexSuccess,
+  onUpdateSuccess,
   onShowSuccess,
-  onDestroySuccess,
-  // onUpdateSuccess,
   onCreateSuccess,
   onError
 }
