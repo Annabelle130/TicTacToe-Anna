@@ -37,7 +37,6 @@ const changePassword = formData => {
     }
   })
 }
-
 const signOut = () => {
   console.log('from api signOut')
 
