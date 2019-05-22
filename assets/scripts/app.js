@@ -13,20 +13,15 @@ $(() => {
   $('#sign-in').on('submit', authEvents.onSignIn)
   $('#change-pw').on('submit', authEvents.onChangePassword)
   $('#sign-out').on('submit', authEvents.onSignOut)
-})
-
-$(() => {
-  // mount all of our event handlers to the correct DOM elements when the page
-  // has finished loading
+  $('#games-update').on('submit', gameEvents.onUpdateGame)
+  $('#games-create').on('submit', gameEvents.onCreateGame)
   $('#show-all-games').on('click', gameEvents.onGetGames)
-  $('#games-show').on('submit', gameEvents.onGetGame)
-  $('#games-delete').on('submit', gameEvents.onDeleteGame)
   $('#games-update').on('submit', gameEvents.onUpdateGame)
   $('#games-create').on('submit', gameEvents.onCreateGame)
 })
 
 let whoseturn = 'x'
-// const gameOver = false
+let gameOver = false
 const gameArray = ['', '', '', '', '', '', '', '', '']
 
 const checkForWinner = function () {
@@ -38,7 +33,10 @@ const checkForWinner = function () {
     (gameArray[1] === 'x' && gameArray[4] === 'x' && gameArray[7] === 'x') ||
     (gameArray[2] === 'x' && gameArray[5] === 'x' && gameArray[8] === 'x') ||
     (gameArray[0] === 'x' && gameArray[4] === 'x' && gameArray[8] === 'x') ||
-    (gameArray[2] === 'x' && gameArray[4] === 'x' && gameArray[6] === 'x') ||
+    (gameArray[2] === 'x' && gameArray[4] === 'x' && gameArray[6] === 'x')){
+      gameOver = true
+      $('#game-status').html('Player x won!')
+    } else if (
     (gameArray[0] === 'o' && gameArray[1] === 'o' && gameArray[2] === 'o') ||
     (gameArray[3] === 'o' && gameArray[4] === 'o' && gameArray[5] === 'o') ||
     (gameArray[6] === 'o' && gameArray[7] === 'o' && gameArray[8] === 'o') ||
@@ -46,47 +44,12 @@ const checkForWinner = function () {
     (gameArray[1] === 'o' && gameArray[4] === 'o' && gameArray[7] === 'o') ||
     (gameArray[2] === 'o' && gameArray[5] === 'o' && gameArray[8] === 'o') ||
     (gameArray[2] === 'o' && gameArray[4] === 'o' && gameArray[6] === 'o')) {
+      gameOver = true
+      $('#game-status').html('Player x won!')
+    } else if (gameArray.boardIndex !== '' {
+    gameOver = true
     $('#game-status').html('Player won!')
   }
-
-  // const checkForWinner = function () {
-  //   if (gameArray[0] === 'x' && gameArray[1] === 'x' && gameArray[2] === 'x') {
-  //     console.log('X Won!')
-  //   } else if (gameArray[3] === 'x' && gameArray[4] === 'x' && gameArray[5] === 'x') {
-  //     console.log('X Won!')
-  //   } else if (gameArray[6] === 'x' && gameArray[7] === 'x' && gameArray[8] === 'x') {
-  //     console.log('X Won!')
-  //   } else if (gameArray[6] === 'x' && gameArray[7] === 'x' && gameArray[8] === 'x') {
-  //     console.log('X Won!')
-  //   } else if (gameArray[0] === 'x' && gameArray[3] === 'x' && gameArray[6] === 'x') {
-  //     console.log('X Won!')
-  //   } else if (gameArray[1] === 'x' && gameArray[4] === 'x' && gameArray[7] === 'x') {
-  //     console.log('X Won!')
-  //   } else if (gameArray[2] === 'x' && gameArray[5] === 'x' && gameArray[8] === 'x') {
-  //     console.log('X Won!')
-  //   } else if (gameArray[0] === 'x' && gameArray[4] === 'x' && gameArray[8] === 'x') {
-  //     console.log('X Won!')
-  //   } else if (gameArray[2] === 'x' && gameArray[4] === 'x' && gameArray[6] === 'x') {
-  //     console.log('X Won!')
-  //   } else if (gameArray[0] === 'o' && gameArray[1] === 'o' && gameArray[2] === 'o') {
-  //     console.log('O Won!')
-  //   } else if (gameArray[3] === 'o' && gameArray[4] === 'o' && gameArray[5] === 'o') {
-  //     console.log('O Won!')
-  //   } else if (gameArray[6] === 'o' && gameArray[7] === 'o' && gameArray[8] === 'o') {
-  //     console.log('O Won!')
-  //   } else if (gameArray[0] === 'o' && gameArray[3] === 'o' && gameArray[6] === 'o') {
-  //     console.log('O Won!')
-  //   } else if (gameArray[1] === 'o' && gameArray[4] === 'o' && gameArray[7] === 'o') {
-  //     console.log('O Won!')
-  //   } else if (gameArray[2] === 'o' && gameArray[5] === 'o' && gameArray[8] === 'o') {
-  //     console.log('O Won!')
-  //   } else if (gameArray[2] === 'o' && gameArray[4] === 'o' && gameArray[6] === 'o') {
-  //     console.log('O Won!')
-  //   } else {console.log('It is a draw!')}
-  // }
-  // const checkForDraw = function () {
-  //   if (gameArray.length = 9 &&
-
   function playGame (event) {
     event.preventDefault()
     const boardIndex = $(event.target).data('index')
@@ -109,8 +72,8 @@ const checkForWinner = function () {
   // const cellValue = $(event.target).text()
   // if (cellValue !== '') {
   //   $('#diff-cell').text('Choose a different cell')  // }
-}
-checkForWinner()
+
+
 gameEvents.onUpdateGame(gameArray, boardIndex, cellValue)
 }
 

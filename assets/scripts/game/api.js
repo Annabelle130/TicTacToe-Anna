@@ -2,7 +2,6 @@
 
 const config = require('./../config')
 const store = require('../store')
-const app = require('../app')
 
 const create = function (formData) {
   return $.ajax({
@@ -50,9 +49,8 @@ const getGames = function (formData) {
   })
 }
 
-
-  getGames,
-  show,
+module.exports = {
   updateGame,
-  create
+  create,
+  getGames
 }
