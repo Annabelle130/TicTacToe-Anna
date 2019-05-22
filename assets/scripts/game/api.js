@@ -2,20 +2,20 @@
 
 const config = require('./../config')
 const store = require('../store')
+const app = require('../app')
 
+// const objGame = {
+//   'game': {
+//     'cell': {
+//         'index': 0,
+//         'value': 'x'
+//       },
+//     'over': false
+//   }
+// }
 
-const objGame = {
-  'game': {
-    'cell': {
-      'index': 0,
-      'value': 'x'
-    },
-    'over': false
-  }
-}
-
-const getGames = function(formData) {
-  // make GET request to /games
+const getGames = function (formData) {
+  // make GET request to  /games
   return $.ajax({
     url: config.apiUrl + '/games',
     method: 'GET',
@@ -26,26 +26,19 @@ const getGames = function(formData) {
   })
 }
 
-const show = function(formData) {
+const show = function (formData) {
   return $.ajax({
     url: config.apiUrl + '/games/' + formData.games.id,
     method: 'GET'
   })
 }
 
-const destroy = function(formData) {
-  return $.ajax({
-    url: config.apiUrl + '/games/' + formData.games.id,
-    method: 'DELETE'
-  })
+const gameOver = function () {
+  if (app.gameArray.length === 9) {
+    console.log('Game Over!')
+  }
 }
-
-// function gameOver(boardIndex) {
-//   if (gameArray.length === 9){
-//     console.log('Game Over!')
-//   }
-// }
-const updateGame = function (boardIndex, cellValue) {
+const updateGame = function (boardIndex, cellValue, boolean) {
   // console.log('updateGame')
   console.log('store.game: ', store.game)
   const id = store.game.id
@@ -58,16 +51,17 @@ const updateGame = function (boardIndex, cellValue) {
           'index': boardIndex,
           'value': cellValue
         },
-        'over': false
+        'over': boolean
       },
       headers: {
         Authorization: 'Token  token=' + store.user.token
       }
 
     }
-    // gameOver()
+
   })
 }
+gameOver()
 
 const create = function (formData) {
   return $.ajax({
@@ -83,7 +77,6 @@ const create = function (formData) {
 module.exports = {
   getGames,
   show,
-  destroy,
   updateGame,
   create
 }

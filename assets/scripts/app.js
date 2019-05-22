@@ -59,12 +59,12 @@ const checkForWinner = function () {
     console.log('O Won!')
   } else if (gameArray[2] === 'o' && gameArray[5] === 'o' && gameArray[8] === 'o') {
     console.log('O Won!')
-  } else if (gameArray[0] === 'o' && gameArray[4] === 'o' && gameArray[8] === 'o') {
-    console.log('O Won!')
   } else if (gameArray[2] === 'o' && gameArray[4] === 'o' && gameArray[6] === 'o') {
     console.log('O Won!')
-  }
+  } else {console.log('It is a draw!')}
 }
+const checkForDraw = function () {
+  if (gameArray.length = 9 &&
 
 function playGame (event) {
   event.preventDefault()
@@ -78,7 +78,9 @@ function playGame (event) {
     gameArray[boardIndex] = 'o'
     whoseturn = 'x'
   }
-  if (whoseturn !== 0) {
+  // objGame.game.cell.index = 0
+  // objGame.game.cell.value = 'x'
+  if (whoseturn !== 0)
     $('#diff-cell').text('Choose a different cell')
   }
   const cellValue = $(event.target).text()

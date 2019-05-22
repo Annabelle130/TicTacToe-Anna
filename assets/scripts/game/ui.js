@@ -64,27 +64,23 @@ const onShowSuccess = function (responseData) {
 //   $('form').trigger('reset')
 // }
 
-// const onUpdateSuccess = function (responseData) {
-//   // add success message to our update-game-message element
-//   $('#update-game-message').html('You successfully updated the game')
+const onUpdateSuccess = function (responseData) {
+$('#update-game-message').html('You successfully updated the game')
 
 // empty out the game-display element in case it was displaying information
-// about the game we just updated, replace with a message for the user to get
-// all the games again.
-// $('#game-display').html('games have changed! Click "Get All games" again to see all the games.')
-//
-// // add class for success messaging
-// $('#update-game-message').addClass('success')
+// about the game we just updated, replace with a message for the user to get all the games again.
+$('#game-display').html('games have changed! Click "Get All games" again to see all the games.')
+$('#update-game-message').addClass('success')
 
 // use setTimeout to allow the success message to stay for 5 seconds before
 // the message is replaced with '' and the 'success' class is removed
-// setTimeout(() => {
-//   $('#update-game-message').html('')
-//   $('#update-game-message').removeClass('success')
-// }, 5000)
+setTimeout(() => {
+$('#update-game-message').html('')
+$('#update-game-message').removeClass('success')
+}, 5000)
 
 // reset all forms
-//   $('form').trigger('reset')
+$('form').trigger('reset')
 // }
 
 const onCreateSuccess = function (responseData) {
