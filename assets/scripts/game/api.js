@@ -4,39 +4,15 @@ const config = require('./../config')
 const store = require('../store')
 const app = require('../app')
 
-// const objGame = {
-//   'game': {
-//     'cell': {
-//         'index': 0,
-//         'value': 'x'
-//       },
-//     'over': false
-//   }
-// }
-
-const getGames = function (formData) {
-  // make GET request to  /games
+const create = function (formData) {
   return $.ajax({
     url: config.apiUrl + '/games',
-    method: 'GET',
-    data: formData,
+    method: 'POST',
     headers: {
       Authorization: 'Token token=' + store.user.token
     }
-  })
-}
 
-const show = function (formData) {
-  return $.ajax({
-    url: config.apiUrl + '/games/' + formData.games.id,
-    method: 'GET'
   })
-}
-
-const gameOver = function () {
-  if (app.gameArray.length === 9) {
-    console.log('Game Over!')
-  }
 }
 const updateGame = function (boardIndex, cellValue, boolean) {
   // console.log('updateGame')
@@ -61,20 +37,20 @@ const updateGame = function (boardIndex, cellValue, boolean) {
 
   })
 }
-gameOver()
-
-const create = function (formData) {
+// gameOver()
+const getGames = function (formData) {
+  // make GET request to  /games
   return $.ajax({
     url: config.apiUrl + '/games',
-    method: 'POST',
+    method: 'GET',
+    data: formData,
     headers: {
       Authorization: 'Token token=' + store.user.token
     }
-
   })
 }
 
-module.exports = {
+
   getGames,
   show,
   updateGame,
