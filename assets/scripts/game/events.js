@@ -90,7 +90,12 @@ const onCreateGame = function (event) {
     // if the API call fails then run our onError function
     .catch(ui.onError)
 }
-
+const onUpdateGame = function (gameArray, boardIndex, cellValue) {
+  // prevent default submit action to stop the page from refreshing
+  console.log('The game has been updated!')
+  // event.preventDefault()
+  store.game.cells = gameArray
+  console.log(store.game)
 module.exports = {
   onGetGames,
   onGetGame,
