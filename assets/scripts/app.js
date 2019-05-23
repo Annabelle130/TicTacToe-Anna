@@ -2,6 +2,7 @@
 
 const authEvents = require('./auth/events')
 const gameEvents = require('./game/events')
+const store = require('./store')
 // use require with a reference to bundle the file and use it in this file
 // const example = require('./example')
 
@@ -14,66 +15,28 @@ $(() => {
   $('#change-pw').on('submit', authEvents.onChangePassword)
   $('#sign-out').on('submit', authEvents.onSignOut)
   $('#games-update').on('submit', gameEvents.onUpdateGame)
-  $('#games-create').on('submit', gameEvents.onCreateGame)
+  $('#game-create').on('submit', gameEvents.onCreateGame)
   $('#show-all-games').on('click', gameEvents.onGetGames)
   $('#games-update').on('submit', gameEvents.onUpdateGame)
   $('#games-create').on('submit', gameEvents.onCreateGame)
 })
 
-let whoseturn = 'x'
-let gameOver = false
-const gameArray = ['', '', '', '', '', '', '', '', '']
 
-const checkForWinner = function () {
-  if ((gameArray[0] === 'x' && gameArray[1] === 'x' && gameArray[2] === 'x') ||
-    (gameArray[3] === 'x' && gameArray[4] === 'x' && gameArray[5] === 'x') ||
-    (gameArray[6] === 'x' && gameArray[7] === 'x' && gameArray[8] === 'x') ||
-    (gameArray[6] === 'x' && gameArray[7] === 'x' && gameArray[8] === 'x') ||
-    (gameArray[0] === 'x' && gameArray[3] === 'x' && gameArray[6] === 'x') ||
-    (gameArray[1] === 'x' && gameArray[4] === 'x' && gameArray[7] === 'x') ||
-    (gameArray[2] === 'x' && gameArray[5] === 'x' && gameArray[8] === 'x') ||
-    (gameArray[0] === 'x' && gameArray[4] === 'x' && gameArray[8] === 'x') ||
-    (gameArray[2] === 'x' && gameArray[4] === 'x' && gameArray[6] === 'x')) {
-    gameOver = true
-    $('#game-status').html('Player x won!')
-  } else if (
-    (gameArray[0] === 'o' && gameArray[1] === 'o' && gameArray[2] === 'o') ||
-    (gameArray[3] === 'o' && gameArray[4] === 'o' && gameArray[5] === 'o') ||
-    (gameArray[6] === 'o' && gameArray[7] === 'o' && gameArray[8] === 'o') ||
-    (gameArray[0] === 'o' && gameArray[3] === 'o' && gameArray[6] === 'o') ||
-    (gameArray[1] === 'o' && gameArray[4] === 'o' && gameArray[7] === 'o') ||
-    (gameArray[2] === 'o' && gameArray[5] === 'o' && gameArray[8] === 'o') ||
-    (gameArray[2] === 'o' && gameArray[4] === 'o' && gameArray[6] === 'o')) {
-    gameOver = true
-    $('#game-status').html('Player x won!')
-  } else if (gameArray.cellValue !== '') {
-    gameOver = true
-    $('#game-status').html('Player won!')
-  }
-  function playGame (event) {
-    event.preventDefault()
-    const boardIndex = $(event.target).data('index')
-    if (whoseturn === 'x') {
-      $(event.target).text('x')
-      gameArray[boardIndex] = 'x'
-      whoseturn = 'o'
-    } else {
-      $(event.target).text('o')
-      gameArray[boardIndex] = 'o'
-      whoseturn = 'x'
-    }
-    // objGame.game.cell.index = 0
-    // objGame.game.cell.value = 'x'
-    $('.cell').on('click', playGame)
-    // if (whoseturn !== 0) {
-    //   $('#diff-cell').text('Choose a different cell')
-  }
-}
+
+
+
+  // objGame.game.cell.index = 0
+  // objGame.game.cell.value = 'x'
+  // $('.cell').on('click', playGame)
+  // if (whoseturn !== 0) {
+  //   $('#diff-cell').text('Choose a different cell')
+
+
 // const cellValue = $(event.target).text()
 // if (cellValue !== '') {
 //   $('#diff-cell').text('Choose a different cell')  // }
 
-gameEvents.onUpdateGame(gameArray, boardIndex, cellValue)
+// gameEvents.onUpdateGame(gameArray, boardIndex, cellValue)
 
 // $("myBtn2").on("click", play_game2);
 //
