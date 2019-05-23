@@ -33,10 +33,10 @@ const checkForWinner = function () {
     (gameArray[1] === 'x' && gameArray[4] === 'x' && gameArray[7] === 'x') ||
     (gameArray[2] === 'x' && gameArray[5] === 'x' && gameArray[8] === 'x') ||
     (gameArray[0] === 'x' && gameArray[4] === 'x' && gameArray[8] === 'x') ||
-    (gameArray[2] === 'x' && gameArray[4] === 'x' && gameArray[6] === 'x')){
-      gameOver = true
-      $('#game-status').html('Player x won!')
-    } else if (
+    (gameArray[2] === 'x' && gameArray[4] === 'x' && gameArray[6] === 'x')) {
+    gameOver = true
+    $('#game-status').html('Player x won!')
+  } else if (
     (gameArray[0] === 'o' && gameArray[1] === 'o' && gameArray[2] === 'o') ||
     (gameArray[3] === 'o' && gameArray[4] === 'o' && gameArray[5] === 'o') ||
     (gameArray[6] === 'o' && gameArray[7] === 'o' && gameArray[8] === 'o') ||
@@ -44,9 +44,9 @@ const checkForWinner = function () {
     (gameArray[1] === 'o' && gameArray[4] === 'o' && gameArray[7] === 'o') ||
     (gameArray[2] === 'o' && gameArray[5] === 'o' && gameArray[8] === 'o') ||
     (gameArray[2] === 'o' && gameArray[4] === 'o' && gameArray[6] === 'o')) {
-      gameOver = true
-      $('#game-status').html('Player x won!')
-    } else if (gameArray.boardIndex !== '' {
+    gameOver = true
+    $('#game-status').html('Player x won!')
+  } else if (gameArray.cellValue !== '') {
     gameOver = true
     $('#game-status').html('Player won!')
   }
@@ -67,15 +67,13 @@ const checkForWinner = function () {
     $('.cell').on('click', playGame)
     // if (whoseturn !== 0) {
     //   $('#diff-cell').text('Choose a different cell')
-    }
   }
-  // const cellValue = $(event.target).text()
-  // if (cellValue !== '') {
-  //   $('#diff-cell').text('Choose a different cell')  // }
-
+}
+// const cellValue = $(event.target).text()
+// if (cellValue !== '') {
+//   $('#diff-cell').text('Choose a different cell')  // }
 
 gameEvents.onUpdateGame(gameArray, boardIndex, cellValue)
-}
 
 // $("myBtn2").on("click", play_game2);
 //
