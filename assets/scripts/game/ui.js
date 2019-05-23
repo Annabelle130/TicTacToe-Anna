@@ -81,7 +81,7 @@ $('#update-game-message').removeClass('success')
 
 // reset all forms
 $('form').trigger('reset')
-// }
+}
 
 const onCreateSuccess = function (responseData) {
   store.game = responseData.game
@@ -133,23 +133,23 @@ const onError = function (err) {
   // reset all forms
   $('form').trigger('reset')
 }
-const onUpdateSuccess = function (formData) {
-  // add success message to our update-book-message element
-  $('#update-game-message').html('Game over')
-
-  // add class for success messaging
-  $('#update-game-message').addClass('success')
-
-  // use setTimeout to allow the success message to stay for 5 seconds before
-  // the message is replaced with '' and the 'success' class is removed
-  setTimeout(() => {
-    $('#update-game-message').html('')
-    $('#update-game-message').removeClass('success')
-  }, 5000)
+// const onUpdateSuccess = function (formData) {
+//   // add success message to our update-book-message element
+//   $('#update-game-message').html('Game over')
+//
+//   // add class for success messaging
+//   $('#update-game-message').addClass('success')
+//
+//   // use setTimeout to allow the success message to stay for 5 seconds before
+//   // the message is replaced with '' and the 'success' class is removed
+//   setTimeout(() => {
+//     $('#update-game-message').html('')
+//     $('#update-game-message').removeClass('success')
+//   }, 5000)
 
   // reset all forms
-  $('form').trigger('reset')
-}
+//   $('form').trigger('reset')
+// }
 module.exports = {
   onUpdateSuccess,
   onShowSuccess,
