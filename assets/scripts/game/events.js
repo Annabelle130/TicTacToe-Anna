@@ -6,9 +6,10 @@ const getFormFields = require('../../../lib/get-form-fields.js')
 const store = require('../store.js')
 const playGame = require('../game.js')
 
-const onGetGames = function () {
+const onGetGames = function (event) {
   // make API call to get all of the games
   api.GetGames()
+  // const formData = getFormFields(event.target)
 
   // if API call is successful then pass the data to the onIndexSuccess function
     .then(ui.onIndexSuccess)
@@ -21,8 +22,6 @@ const onGetGame = function (event) {
   // prevent default submit action to stop the page from refreshing
   event.preventDefault()
   const formData = getFormFields(event.target)
-  store.game.cells = gameArray
-
 
   api.show(formData)
 
@@ -35,9 +34,7 @@ const onGetGame = function (event) {
 }
 
 const onDeleteGame = function (event) {
-
   event.preventDefault()
-
 
   const formData = getFormFields(event.target)
 
@@ -75,6 +72,7 @@ const onUpdateGame = function (gameArray, boardIndex, cellValue) {
 const onCreateGame = function (event) {
   event.preventDefault()
   console.log('Function is running!')
+  $('.cell').html('')
 
   // create a javascript object from the form where the user entered the GAME
   // information
