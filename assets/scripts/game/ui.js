@@ -65,26 +65,27 @@ const onShowSuccess = function (responseData) {
 // }
 
 const onUpdateSuccess = function (responseData) {
-$('#update-game-message').html('You successfully updated the game')
+  $('#update-game-message').html('You successfully updated the game')
 
-// empty out the game-display element in case it was displaying information
-// about the game we just updated, replace with a message for the user to get all the games again.
-$('#game-display').html('games have changed! Click "Get All games" again to see all the games.')
-$('#update-game-message').addClass('success')
+  // empty out the game-display element in case it was displaying information
+  // about the game we just updated, replace with a message for the user to get all the games again.
+  $('#game-display').html('games have changed! Click "Get All games" again to see all the games.')
+  $('#update-game-message').addClass('success')
 
-// use setTimeout to allow the success message to stay for 5 seconds before
-// the message is replaced with '' and the 'success' class is removed
-setTimeout(() => {
-$('#update-game-message').html('')
-$('#update-game-message').removeClass('success')
-}, 5000)
+  // use setTimeout to allow the success message to stay for 5 seconds before
+  // the message is replaced with '' and the 'success' class is removed
+  setTimeout(() => {
+    $('#update-game-message').html('')
+    $('#update-game-message').removeClass('success')
+  }, 5000)
 
-// reset all forms
-$('form').trigger('reset')
+  // reset all forms
+  $('form').trigger('reset')
 }
 
 const onCreateSuccess = function (responseData) {
   store.game = responseData.game
+  console.log(store.game)
   // add success message to content
   $('#create-game-message').html('You started a new game!')
 
@@ -147,7 +148,7 @@ const onError = function (err) {
 //     $('#update-game-message').removeClass('success')
 //   }, 5000)
 
-  // reset all forms
+// reset all forms
 //   $('form').trigger('reset')
 // }
 module.exports = {
