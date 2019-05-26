@@ -1,6 +1,6 @@
 'use strict'
 const store = require('./store')
-const gameAPI = require('./api')
+// const gameAPI = require('./api')
 
 let whoseturn = 'x'
 const checkForWinner = function () {
@@ -49,7 +49,7 @@ const playGame = function (event) {
       whoseturn = 'x'
     }
     checkForWinner()
-    gameAPI.updateGame(boardIndex, store.game.cells[boardIndex], store.game.over)
+    // gameAPI.updateGame(boardIndex, store.game.cells[boardIndex], store.game.over)
   }
   // objGame.game.
   // cell.index = 0
