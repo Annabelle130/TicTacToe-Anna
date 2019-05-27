@@ -9,14 +9,12 @@
 // for some css stylings
 body {
   background-image: url("https://cdn.pixabay.com/photo/2017/06/21/07/33/background-2426328_960_720.jpg");
-
-
 }
 
 .cell {
   background: #FFA8D3;
   border: 15px solid #555;
-  align-items: center;
+  // align-items: center;
 
   color: #FF4848;
   min-height: 100px;
@@ -36,3 +34,6 @@ body {
 width: 100%;
 
 }
+// #game-status {
+//   background-color: #EE82EE
+// }
