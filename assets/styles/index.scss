@@ -7,10 +7,14 @@
 // }
 
 // for some css stylings
-// body {
-//   background-image: url("https://cdn.pixabay.com/photo/2017/06/21/07/33/background-2426328_960_720.jpg");
-// }
+body {
+  background-image: url("https://images.pexels.com/photos/255379/pexels-photo-255379.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940");
 
+}
+
+h2 {
+  text-align: center;
+}
 .cell {
   background: #FFA8D3;
   border: 15px solid #555;
@@ -34,6 +38,15 @@ width: 100%;
 
 }
 
+#game-create {
+
+
+  text-align: center;
+  margin: auto;
+
+
+}
+
 #game-status {
   background-color: #EE82EE;
 }
@@ -47,4 +60,8 @@ width: 100%;
   width: 60%;
   border: 3px solid #73AD21;
   padding: 10px;
+}
+
+input[type="submit"] {
+  background-color: #90EE90;
 }
