@@ -22,6 +22,8 @@ const onSignInSuccess = responseData => {
   $('#message').removeClass()
   $('#message').addClass('success')
   $('#game-board').show()
+  $('#sign-up').hide()
+  $('#create-game-message').html('Press Start the Game!')
 
   store.user = responseData.user
   console.log('store is', store)
