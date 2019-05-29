@@ -29,10 +29,11 @@ const checkForWinner = function () {
     (gameArray[0] === 'o' && gameArray[4] === 'o' && gameArray[8] === 'o') ||
     (gameArray[2] === 'o' && gameArray[4] === 'o' && gameArray[6] === 'o')) {
     store.game.over = true
-    $('#game-status').html('Player o won!')
+    $('#create-game-message').html('Player o won!')
   } else if (store.game.cells.every(checkForDraw)) {
     store.game.over = true
-    $('#game-status').html('It\'s a draw!')
+    $('#create-game-message').html('It\'s a draw!')
+    //game-status
   }
 }
 
@@ -45,18 +46,16 @@ const playGame = function (event) {
       $(event.target).text('x')
       store.game.cells[boardIndex] = 'x'
       whoseturn = 'o'
-      // api.updateGame(boardIndex, store.game.cells[boardIndex], store.game.over)
     } else {
       $(event.target).text('o')
       store.game.cells[boardIndex] = 'o'
       whoseturn = 'x'
-      // api.updateGame(boardIndex, store.game.cells[boardIndex], store.game.over)
-    }
-    checkForWinner()
+      checkForWinner()
     api.updateGame(boardIndex, store.game.cells[boardIndex], store.game.over)
       .then(ui.onUpdateSuccess)
       .catch(ui.onUpdateFailure)
   }
+}
 
   // objGame.game.
   // cell.index = 0
@@ -64,7 +63,7 @@ const playGame = function (event) {
   // $('.cell').on('click', playGame)
   // if (whoseturn !== 0) {
   //   $('#diff-cell').text('Choose a different cell')
-}
+
 
 module.exports = {
   playGame
