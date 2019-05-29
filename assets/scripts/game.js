@@ -1,6 +1,7 @@
 'use strict'
 const store = require('./store')
 const api = require('./game/api')
+const ui = require('./game/ui')
 
 let whoseturn = 'x'
 const checkForWinner = function () {
@@ -31,9 +32,10 @@ const checkForWinner = function () {
     $('#game-status').html('Player o won!')
   } else if (store.game.cells.every(checkForDraw)) {
     store.game.over = true
-    $('#game-status').html('Player won!')
+    $('#game-status').html('It\'s a draw!')
   }
 }
+
 const playGame = function (event) {
   event.preventDefault()
   const boardIndex = $(event.target).data('index')
@@ -43,14 +45,19 @@ const playGame = function (event) {
       $(event.target).text('x')
       store.game.cells[boardIndex] = 'x'
       whoseturn = 'o'
+      // api.updateGame(boardIndex, store.game.cells[boardIndex], store.game.over)
     } else {
       $(event.target).text('o')
       store.game.cells[boardIndex] = 'o'
       whoseturn = 'x'
+      // api.updateGame(boardIndex, store.game.cells[boardIndex], store.game.over)
     }
-    api.updateGame(boardIndex, store.game.cells[boardIndex], store.game.over)
     checkForWinner()
+    api.updateGame(boardIndex, store.game.cells[boardIndex], store.game.over)
+      .then(ui.onUpdateSuccess)
+      .catch(ui.onUpdateFailure)
   }
+
   // objGame.game.
   // cell.index = 0
   // objGame.game.cell.value = 'x'
@@ -58,6 +65,7 @@ const playGame = function (event) {
   // if (whoseturn !== 0) {
   //   $('#diff-cell').text('Choose a different cell')
 }
+
 module.exports = {
   playGame
 }

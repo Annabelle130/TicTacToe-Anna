@@ -65,12 +65,13 @@ const onShowSuccess = function (responseData) {
 // }
 
 const onUpdateSuccess = function (responseData) {
-  $('#update-game-message').html('You successfully updated the game')
+  console.log('Yay!')
+  $('#create-game-message').html('You played a game!')
 
   // empty out the game-display element in case it was displaying information
   // about the game we just updated, replace with a message for the user to get all the games again.
-  $('#game-display').html('games have changed! Click "Get All games" again to see all the games.')
-  $('#update-game-message').addClass('success')
+  // $('#game-display').html('games have changed! Click "Get All games" again to see all the games.')
+  // $('#update-game-message').addClass('success')
 
   // use setTimeout to allow the success message to stay for 5 seconds before
   // the message is replaced with '' and the 'success' class is removed

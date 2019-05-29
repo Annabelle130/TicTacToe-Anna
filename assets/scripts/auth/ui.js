@@ -7,6 +7,7 @@ const onSignUpSuccess = responseData => {
   $('#message').text('Signed up successfully!')
   $('#message').removeClass()
   $('#message').addClass('success')
+  $('#create-game-message').html('Sign Up Successful!')
 }
 
 const onSignUpFailure = responseData => {
@@ -21,8 +22,10 @@ const onSignInSuccess = responseData => {
   $('#message').text('Signed in successfully!')
   $('#message').removeClass()
   $('#message').addClass('success')
-  $('#game-board').show()
+  $('#game-board').removeClass('hide')
+  // $('#game-board').show()
   $('#sign-up').hide()
+  $('#sign-in').hide()
   $('#create-game-message').html('Press Start the Game!')
 
   store.user = responseData.user
@@ -37,13 +40,13 @@ const onSignInFailure = responseData => {
 }
 
 const onChangePasswordSuccess = () => {
-  $('#message').text('Changed password successfully!')
+  $('#create-game-message').html('Password Changed!')
   $('#message').removeClass()
   $('#message').addClass('success')
 }
 
 const onChangePasswordFailure = () => {
-  $('#message').text('Change password failed :(((')
+  $('#create-game-message').text('Password change failed!')
   $('#message').removeClass()
   $('#message').addClass('failure')
 }
