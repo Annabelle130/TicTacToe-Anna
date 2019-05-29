@@ -55,23 +55,15 @@ const onUpdateGame = function (gameArray, boardIndex, cellValue) {
   store.game.cells = gameArray
   console.log(store.game)
   playGame()
-
-  // create a javascript object from the form where the user entered the book
-  // information
-  // const formData = getFormFields(event.target)
-
-  // make API call to update one book with the data we grabbed from the form
-  api.updateGame(boardIndex, cellValue)
-
-    // if the API call is successful then invoke the onUpdateSuccess function
-    .then(ui.onUpdateSuccess(event.target))
-
-    // if the API call fails then run our onError function
-    .catch(ui.onError)
+  // api.updateGame(boardIndex, cellValue)
+  // .then(ui.onUpdateSuccess(event.target))
+  //   .catch(ui.onError
 }
+
 const onCreateGame = function (event) {
   event.preventDefault()
   console.log('Function is running!')
+  $('#game-board').show()
   $('.cell').html('')
 
   // create a javascript object from the form where the user entered the GAME

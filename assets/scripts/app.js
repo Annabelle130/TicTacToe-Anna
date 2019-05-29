@@ -11,18 +11,18 @@ const gameLogic = require('./game')
 // require('./example')
 
 $(() => {
-  $('#game-board').hide()
+  // $('#game-board').hide()
   $('#sign-up').on('submit', authEvents.onSignUp)
   $('#sign-in').on('submit', authEvents.onSignIn)
   // $('#sign-in').submit(function (e) {
   //   $('#sign-up').hide()
   // })
 
-  $('#change-pw').on('submit', authEvents.onChangePassword)
+  $('#change-password').on('submit', authEvents.onChangePassword)
   $('#sign-out').on('submit', authEvents.onSignOut)
-  $('#games-update').on('submit', gameEvents.onUpdateGame)
+  // $('#games-update').on('submit', gameEvents.onUpdateGame)
   $('#game-create').on('submit', gameEvents.onCreateGame)
   $('#show-all-games').on('click', gameEvents.onGetGames)
   $('.cell').on('click', gameLogic.playGame)
-  $('#games-update').on('submit', gameEvents.onUpdateGame)
+  $('#game-update').on('submit', gameEvents.onUpdateGame)
 })
