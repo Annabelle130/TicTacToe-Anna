@@ -135,6 +135,21 @@ const onError = function (err) {
   // reset all forms
   $('form').trigger('reset')
 }
+const onGetSuccess = responseData => {
+  $('#create-game-message').html('')
+  if (responseData.games.length > 0) {
+    const lengthGames = responseData.games.length
+    $('#create-game-message').append(`You've Played ${lengthGames} Games!`)
+    $('#message').text('Success! Your Info is Below')
+    $('#message').removeClass()
+    $('#message').addClass('success')
+  } else {
+    $('#message').text('No Games to Display! Play Some First :)')
+    $('#message').removeClass()
+    $('#message').addClass('warning')
+    $('form').trigger('reset')
+  }
+}
 // const onUpdateSuccess = function (formData) {
 //   // add success message to our update-book-message element
 //   $('#update-game-message').html('Game over')
@@ -156,5 +171,6 @@ module.exports = {
   onUpdateSuccess,
   onShowSuccess,
   onCreateSuccess,
-  onError
+  onError,
+  onGetSuccess
 }
