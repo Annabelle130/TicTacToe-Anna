@@ -135,19 +135,11 @@ const onError = function (err) {
   // reset all forms
   $('form').trigger('reset')
 }
-const onGetSuccess = responseData => {
-  $('#create-game-message').html('')
+const onGetGamesSuccess = responseData => {
   if (responseData.games.length > 0) {
     const lengthGames = responseData.games.length
-    $('#create-game-message').append(`You've Played ${lengthGames} Games!`)
-    $('#message').text('Success! Your Info is Below')
-    $('#message').removeClass()
-    $('#message').addClass('success')
-  } else {
-    $('#message').text('No Games to Display! Play Some First :)')
-    $('#message').removeClass()
-    $('#message').addClass('warning')
-    $('form').trigger('reset')
+    $('#finished-games').html(`You've Played ${lengthGames} Games!`)
+    console.log(lengthGames)
   }
 }
 // const onUpdateSuccess = function (formData) {
@@ -172,5 +164,5 @@ module.exports = {
   onShowSuccess,
   onCreateSuccess,
   onError,
-  onGetSuccess
+  onGetGamesSuccess
 }

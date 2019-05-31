@@ -33,17 +33,16 @@ const updateGame = function (boardIndex, cellValue, boolean) {
       }
     },
     headers: {
-      Authorization: 'Token  token=' + store.user.token
+      Authorization: 'Token token=' + store.user.token
     }
   })
 }
 // gameOver()
-const getGames = function (formData) {
-  // make GET request to  /games
+const getGames = function () {
   return $.ajax({
     url: config.apiUrl + '/games',
     method: 'GET',
-    data: formData,
+
     headers: {
       Authorization: 'Token token=' + store.user.token
     }

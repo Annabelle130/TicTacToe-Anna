@@ -11,8 +11,8 @@ const onGetGames = function (event) {
 
   // const formData = getFormFields(event.target)
   event.preventDefault()
-  api.GetGames()
-    .then(ui.onGetSuccess)
+  api.getGames()
+    .then(ui.onGetGamesSuccess)
     .catch(ui.onError)
 }
 
