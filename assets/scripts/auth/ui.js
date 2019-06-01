@@ -28,6 +28,7 @@ const onSignInSuccess = responseData => {
   // $('#game-board').show()
   $('#sign-up').hide()
   $('#sign-in').hide()
+  $('#game-create').show()
   $('#create-game-message').html('Press Start the Game!')
   $('form').trigger('reset')
 
@@ -37,9 +38,9 @@ const onSignInSuccess = responseData => {
 
 const onSignInFailure = responseData => {
   console.log('failure', responseData)
-  $('#message').text('Sign in failed :(((')
-  $('#message').removeClass()
-  $('#message').addClass('failure')
+  $('#create-game-message').text('Sign in failed :(((')
+  $('#create-game-message').removeClass()
+  $('#create-game-message').addClass('failure')
   $('form').trigger('reset')
 }
 

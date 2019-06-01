@@ -18,7 +18,7 @@ const checkForWinner = function () {
     (gameArray[0] === 'x' && gameArray[4] === 'x' && gameArray[8] === 'x') ||
     (gameArray[2] === 'x' && gameArray[4] === 'x' && gameArray[6] === 'x')) {
     store.game.over = true
-    $('#create-game-message').html('Player x won!')
+    $('#win-status').html('Player x won!')
   } else if (
     (gameArray[0] === 'o' && gameArray[1] === 'o' && gameArray[2] === 'o') ||
     (gameArray[3] === 'o' && gameArray[4] === 'o' && gameArray[5] === 'o') ||
@@ -29,10 +29,10 @@ const checkForWinner = function () {
     (gameArray[0] === 'o' && gameArray[4] === 'o' && gameArray[8] === 'o') ||
     (gameArray[2] === 'o' && gameArray[4] === 'o' && gameArray[6] === 'o')) {
     store.game.over = true
-    $('#create-game-message').html('Player o won!')
+    $('#win-status').html('Player o won!')
   } else if (store.game.cells.every(checkForDraw)) {
     store.game.over = true
-    $('#create-game-message').html('It\'s a draw!')
+    $('#win-status').html('It\'s a draw!')
     // game-status
   }
 }
@@ -55,6 +55,7 @@ const playGame = function (event) {
     api.updateGame(boardIndex, store.game.cells[boardIndex], store.game.over)
       .then(ui.onUpdateSuccess)
       .catch(ui.onUpdateFailure)
+    whoseturn = 'x'
   }
 }
 
