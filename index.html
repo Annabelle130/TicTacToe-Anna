@@ -15,14 +15,14 @@
 
 <body>
 
-  <h2>Welcome to Tic Tac Toe</h2>
+  <h2>Welcome to Anna's tic tac toe project</h2>
   <p id="game-status"></p>
   <p id="draw"></p>
 <div class="center">
   <form id="game-create" class = "hide">
     <input type="submit" value="Start a new game!">
   </form>
-  <form id="get-games">
+  <form id="get-games" class = "hide">
        <input type="submit" value="Get Number of Games" />
      </form>
   <p id="finished-games"></p>
@@ -31,7 +31,8 @@
   <div id="game-display"></div>
   <p id="error-message" class="user-feedback"></p>
 
-  <p id="create-game-message" class="user-feedback">GAME STATUS</p>
+  <p id="create-game-message" class="user-feedback">USER MESSAGING</p>
+  <br>
 
 
 
@@ -41,6 +42,7 @@
   </form> -->
 
 
+<div class = "center">
   <form id="sign-up">
     <input name="credentials[email]" type="text" placeholder="email">
     <input name="credentials[password]" type="text" placeholder="password">
@@ -57,6 +59,8 @@
     <input name="passwords[new]" type="password" placeholder="new password">
     <input type="submit" value="Change Password">
   </form>
+</div>
+<br>
 
 
 <div id="game-board" class="container-fluid hide">

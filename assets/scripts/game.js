@@ -55,10 +55,12 @@ const playGame = function (event) {
     api.updateGame(boardIndex, store.game.cells[boardIndex], store.game.over)
       .then(ui.onUpdateSuccess)
       .catch(ui.onUpdateFailure)
-    whoseturn = 'x'
   }
 }
 
+const resetGameState = function () {
+  whoseturn = 'x'
+}
 // objGame.game.
 // cell.index = 0
 // objGame.game.cell.value = 'x'
@@ -67,5 +69,6 @@ const playGame = function (event) {
 //   $('#diff-cell').text('Choose a different cell')
 
 module.exports = {
-  playGame
+  playGame,
+  resetGameState
 }
