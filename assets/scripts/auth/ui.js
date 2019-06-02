@@ -8,6 +8,11 @@ const onSignUpSuccess = responseData => {
   $('#create-game-message').removeClass()
   $('#create-game-message').addClass('success')
   $('#create-game-message').html('Sign Up Successful!')
+  $('#sign-up').hide()
+  $('#sign-out').show()
+  $('#sign-in').show()
+  $('#game-create').show()
+  $('#create-game-message').html('Please sign in to play.')
   setTimeout(() => {
     $('#create-game-message').html('')
     $('#create-game-message').removeClass('success')
