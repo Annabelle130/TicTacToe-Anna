@@ -4,7 +4,7 @@ const api = require('./api.js')
 const ui = require('./ui.js')
 // const getFormFields = require('../../../lib/get-form-fields.js')
 const store = require('../store.js')
-const playGame = require('../game.js')
+const game = require('../game.js')
 
 const onGetGames = function (event) {
   // make API call to get all of the games
@@ -52,7 +52,7 @@ const onUpdateGame = function (gameArray, boardIndex, cellValue) {
   // event.preventDefault()
   store.game.cells = gameArray
   console.log(store.game)
-  playGame()
+  game.playGame()
   // api.updateGame(boardIndex, cellValue)
   // .then(ui.onUpdateSuccess(event.target))
   //   .catch(ui.onError

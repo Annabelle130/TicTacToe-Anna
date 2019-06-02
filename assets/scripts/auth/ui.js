@@ -8,6 +8,12 @@ const onSignUpSuccess = responseData => {
   $('#create-game-message').removeClass()
   $('#create-game-message').addClass('success')
   $('#create-game-message').html('Sign Up Successful!')
+  setTimeout(() => {
+    $('#create-game-message').html('')
+    $('#create-game-message').removeClass('success')
+  }, 5000)
+
+  // reset all forms
   $('form').trigger('reset')
 }
 
@@ -29,7 +35,7 @@ const onSignInSuccess = responseData => {
   $('#sign-up').hide()
   $('#sign-in').hide()
   $('#game-create').show()
-  $('#create-game-message').html('Press Start the Game!')
+  $('#create-game-message').html('Press the button above to  start the game!')
   $('form').trigger('reset')
 
   store.user = responseData.user
@@ -63,6 +69,7 @@ const onSignOutSuccess = () => {
   $('#create-game-message').text('Signed out successfully!')
   $('#create-game-message').removeClass()
   $('#create-game-message').addClass('success')
+  $('#change-password').hide()
   $('form').trigger('reset')
 }
 

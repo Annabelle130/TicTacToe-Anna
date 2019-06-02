@@ -68,18 +68,11 @@ const onShowSuccess = function (responseData) {
 
 const onUpdateSuccess = function (responseData) {
   console.log('Yay!')
-  $('#create-game-message').html('You played a game!')
+  $('#win-status').html('Take the next move!')
 
-  // empty out the game-display element in case it was displaying information
-  // about the game we just updated, replace with a message for the user to get all the games again.
-  // $('#game-display').html('games have changed! Click "Get All games" again to see all the games.')
-  // $('#update-game-message').addClass('success')
-
-  // use setTimeout to allow the success message to stay for 5 seconds before
-  // the message is replaced with '' and the 'success' class is removed
   setTimeout(() => {
-    $('#update-game-message').html('')
-    $('#update-game-message').removeClass('success')
+    $('#win-status').html('')
+    $('#win-status').removeClass('success')
   }, 5000)
 
   // reset all forms
@@ -91,18 +84,6 @@ const onCreateSuccess = function (responseData) {
   console.log(store.game)
   // add success message to content
   $('#create-game-message').html('You started a new game!')
-
-  // check if the game-display element is NOT just an empty string
-  if (!($('#game-display').html() === '')) {
-  //   // if the element is NOT empty it is probably displaying the game
-  //   // information, but we just created a new game!
-  //   // we can add a message to let the users know they should request all of
-  //   // the games again to see the newly created game included
-    $('#game-display').html('games have changed! Click "Get All games" again to see all the games.')
-  }
-  $('#game-display').html('')
-
-  // add class for success messaging
   $('#create-game-message').addClass('success')
 
   // use setTimeout to allow the success message to stay for 5 seconds before
