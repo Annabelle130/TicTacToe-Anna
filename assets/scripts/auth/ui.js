@@ -15,6 +15,7 @@ const onSignUpSuccess = responseData => {
 
   // reset all forms
   $('form').trigger('reset')
+  $('#sign-up').hide()
 }
 
 const onSignUpFailure = responseData => {
@@ -35,8 +36,12 @@ const onSignInSuccess = responseData => {
   $('#sign-up').hide()
   $('#sign-in').hide()
   $('#game-create').show()
-  $('#create-game-message').html('Press the button above to  start the game!')
+  $('#create-game-message').html('You are in! Press the button above to play')
   $('form').trigger('reset')
+  setTimeout(() => {
+    $('#create-game-message').html('')
+    $('#create-game-message').removeClass('success')
+  }, 5000)
 
   store.user = responseData.user
   console.log('store is', store)
