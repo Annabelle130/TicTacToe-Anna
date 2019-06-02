@@ -41,6 +41,7 @@ const onSignInSuccess = responseData => {
   $('#sign-in').hide()
   $('#game-create').show()
   $('#sign-out').show()
+  $('#change-password').show()
   $('#create-game-message').html('You are in! Press the button above to play')
   $('form').trigger('reset')
   setTimeout(() => {
@@ -80,6 +81,8 @@ const onSignOutSuccess = () => {
   $('#create-game-message').removeClass()
   $('#create-game-message').addClass('success')
   $('#change-password').hide()
+  $('#sign-in').show()
+  $('#sign-up').show()
   $('form').trigger('reset')
 }
 

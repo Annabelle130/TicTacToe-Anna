@@ -16,9 +16,9 @@ const create = function () {
 }
 const updateGame = function (boardIndex, cellValue, boolean) {
   // console.log('updateGame')
-  console.log('store.game: ', store.game)
-  console.log('updating game with user token ', store.user.token)
-  console.log(store.user)
+  // console.log('store.game: ', store.game)
+  // console.log('updating game with user token ', store.user.token)
+  // console.log(store.user)
   const id = store.game.id
   return $.ajax({
     url: config.apiUrl + '/games/' + id,

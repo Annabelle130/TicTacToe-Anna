@@ -16,42 +16,12 @@ const onGetGames = function (event) {
     .catch(ui.onError)
 }
 
-// const onGetGame = function (event) {
-//   // prevent default submit action to stop the page from refreshing
-//   event.preventDefault()
-//   const formData = getFormFields(event.target)
-//
-//   api.show(formData)
-//
-//     // if the API call is successful then pass the data to the onShowSuccess
-//     // function
-//     .then(ui.onShowSuccess)
-//
-//     // if the API call fails then run our onError function
-//     .catch(ui.onError)
-// }
-//
-// const onDeleteGame = function (event) {
-//   event.preventDefault()
-//
-//   const formData = getFormFields(event.target)
-//
-//   // make API call for deleting one book with the data we grabbed from the form
-//   api.destroy(formData)
-//
-//     // if the API call is successful then invoke the onDetroySuccess function
-//     .then(ui.onDestroySuccess)
-//
-//     // if the API call fails then run our onError function
-//     .catch(ui.onError)
-// }
-
 const onUpdateGame = function (gameArray, boardIndex, cellValue) {
   // prevent default submit action to stop the page from refreshing
-  console.log('The game has been updated!')
+  // console.log('The game has been updated!')
   // event.preventDefault()
   store.game.cells = gameArray
-  console.log(store.game)
+  // console.log(store.game)
   game.playGame()
   // api.updateGame(boardIndex, cellValue)
   // .then(ui.onUpdateSuccess(event.target))
@@ -60,7 +30,7 @@ const onUpdateGame = function (gameArray, boardIndex, cellValue) {
 
 const onCreateGame = function (event) {
   event.preventDefault()
-  console.log('Function is running!')
+  // console.log('Function is running!')
   $('#game-board').show()
   $('.cell').html('')
 
