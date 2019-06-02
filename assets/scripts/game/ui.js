@@ -1,6 +1,6 @@
 'use strict'
 const store = require('../store.js')
-const game = require('../game.js')
+// const game = require('../game.js')
 
 //
 // const onIndexSuccess = function (responseData) {
@@ -78,6 +78,10 @@ const onUpdateSuccess = function (responseData) {
   // reset all forms
   $('form').trigger('reset')
 }
+const onUpdateFailure = function (responseData) {
+  console.log('Update Failed')
+  console.log(responseData)
+}
 
 const onCreateSuccess = function (responseData) {
   store.game = responseData.game
@@ -95,7 +99,7 @@ const onCreateSuccess = function (responseData) {
 
   // reset all forms
   $('form').trigger('reset')
-  game.resetGameState()
+  store.game.whoseturn = 'x'
   $('#get-games').show()
 }
 
@@ -146,6 +150,7 @@ const onGetGamesSuccess = responseData => {
 // }
 module.exports = {
   onUpdateSuccess,
+  onUpdateFailure,
   onShowSuccess,
   onCreateSuccess,
   onError,

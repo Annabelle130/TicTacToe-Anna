@@ -3,7 +3,8 @@ const store = require('./store')
 const api = require('./game/api')
 const ui = require('./game/ui')
 
-let whoseturn = 'x'
+// let whoseturn = 'x'
+// store.game.whoseturn = 'x'
 const checkForWinner = function () {
   const gameArray = store.game.cells
   const checkForDraw = function (cell) {
@@ -42,25 +43,30 @@ const playGame = function (event) {
   const boardIndex = $(event.target).data('index')
   console.log(boardIndex, store.game.cells[boardIndex], store.game.over)
   if ((store.game.cells[boardIndex] === '') && store.game.over === false) {
-    if (whoseturn === 'x') {
+    if (store.game.whoseturn === 'x') {
       $(event.target).text('x')
       store.game.cells[boardIndex] = 'x'
-      whoseturn = 'o'
+      store.game.whoseturn = 'o'
     } else {
       $(event.target).text('o')
       store.game.cells[boardIndex] = 'o'
-      whoseturn = 'x'
+      store.game.whoseturn = 'x'
     }
     checkForWinner()
+    console.log(ui)
+    console.log(api)
     api.updateGame(boardIndex, store.game.cells[boardIndex], store.game.over)
+    //   .then(function () { console.log('hello?') })
+    //
+    // console.log('howdy')
       .then(ui.onUpdateSuccess)
       .catch(ui.onUpdateFailure)
   }
 }
 
-const resetGameState = function () {
-  whoseturn = 'x'
-}
+// const resetGameState = function () {
+//   whoseturn = 'x'
+// }
 // objGame.game.
 // cell.index = 0
 // objGame.game.cell.value = 'x'
@@ -69,6 +75,6 @@ const resetGameState = function () {
 //   $('#diff-cell').text('Choose a different cell')
 
 module.exports = {
-  playGame,
-  resetGameState
+  playGame
+  // resetGameState
 }
