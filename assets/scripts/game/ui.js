@@ -28,7 +28,7 @@ const store = require('../store.js')
 const onShowSuccess = function (responseData) {
   // log the information we get back from the API so we know how we can
   // interact with it.
-  console.log(responseData)
+  // console.log(responseData)
 
   // build HTML element with data for one game
   const gameHTML = (`
@@ -67,7 +67,7 @@ const onShowSuccess = function (responseData) {
 // }
 
 const onUpdateSuccess = function (responseData) {
-  console.log('Yay!')
+  // console.log('Yay!')
   $('#win-status').html('Take the next move!')
 
   setTimeout(() => {
@@ -79,13 +79,13 @@ const onUpdateSuccess = function (responseData) {
   $('form').trigger('reset')
 }
 const onUpdateFailure = function (responseData) {
-  console.log('Update Failed')
-  console.log(responseData)
+  // console.log('Update Failed')
+  // console.log(responseData)
 }
 
 const onCreateSuccess = function (responseData) {
   store.game = responseData.game
-  console.log(store.game)
+  // console.log(store.game)
   // add success message to content
   $('#create-game-message').html('You are in! Make your move!')
   $('#create-game-message').addClass('success')
@@ -128,7 +128,7 @@ const onGetGamesSuccess = responseData => {
   if (responseData.games.length > 0) {
     const lengthGames = responseData.games.length
     $('#finished-games').html(`You've Played ${lengthGames} Games!`)
-    console.log(lengthGames)
+    // console.log(lengthGames)
   }
 }
 // const onUpdateSuccess = function (formData) {

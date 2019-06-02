@@ -3,13 +3,12 @@
 const store = require('../store')
 
 const onSignUpSuccess = responseData => {
-  console.log('success', responseData)
+  // console.log('success', responseData)
   $('#create-game-message').text('Signed up successfully!')
   $('#create-game-message').removeClass()
   $('#create-game-message').addClass('success')
   $('#create-game-message').html('Sign Up Successful!')
   $('#sign-up').hide()
-  $('#sign-out').show()
   $('#sign-in').show()
   $('#game-create').show()
   $('#create-game-message').html('Please sign in to play.')
@@ -24,7 +23,7 @@ const onSignUpSuccess = responseData => {
 }
 
 const onSignUpFailure = responseData => {
-  console.log('failure', responseData)
+  // console.log('failure', responseData)
   $('#create-game-message').text('Sign up failed :(((')
   $('#create-game-message').removeClass()
   $('#create-game-message').addClass('failure')
@@ -32,7 +31,7 @@ const onSignUpFailure = responseData => {
 }
 
 const onSignInSuccess = responseData => {
-  console.log('success', responseData)
+  // console.log('success', responseData)
   $('#create-game-message').text('Signed in successfully!')
   $('#create-game-message').removeClass()
   $('#create-game-message').addClass('success')
@@ -41,6 +40,7 @@ const onSignInSuccess = responseData => {
   $('#sign-up').hide()
   $('#sign-in').hide()
   $('#game-create').show()
+  $('#sign-out').show()
   $('#create-game-message').html('You are in! Press the button above to play')
   $('form').trigger('reset')
   setTimeout(() => {
@@ -49,11 +49,11 @@ const onSignInSuccess = responseData => {
   }, 5000)
 
   store.user = responseData.user
-  console.log('store is', store)
+  // console.log('store is', store)
 }
 
 const onSignInFailure = responseData => {
-  console.log('failure', responseData)
+  // console.log('failure', responseData)
   $('#create-game-message').text('Sign in failed :(((')
   $('#create-game-message').removeClass()
   $('#create-game-message').addClass('failure')

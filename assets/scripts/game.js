@@ -19,7 +19,7 @@ const checkForWinner = function () {
     (gameArray[0] === 'x' && gameArray[4] === 'x' && gameArray[8] === 'x') ||
     (gameArray[2] === 'x' && gameArray[4] === 'x' && gameArray[6] === 'x')) {
     store.game.over = true
-    $('#create-game-message').html('Player x won!')
+    $('#create-game-message').html('Player x won! Play again?')
   } else if (
     (gameArray[0] === 'o' && gameArray[1] === 'o' && gameArray[2] === 'o') ||
     (gameArray[3] === 'o' && gameArray[4] === 'o' && gameArray[5] === 'o') ||
@@ -30,10 +30,10 @@ const checkForWinner = function () {
     (gameArray[0] === 'o' && gameArray[4] === 'o' && gameArray[8] === 'o') ||
     (gameArray[2] === 'o' && gameArray[4] === 'o' && gameArray[6] === 'o')) {
     store.game.over = true
-    $('#create-game-message').html('Player o won!')
+    $('#create-game-message').html('Player o won! Play again?')
   } else if (store.game.cells.every(checkForDraw)) {
     store.game.over = true
-    $('#create-game-message').html('It\'s a draw!')
+    $('#create-game-message').html('It\'s a draw! Play again?')
     // game-status
   }
 }
@@ -41,7 +41,7 @@ const checkForWinner = function () {
 const playGame = function (event) {
   event.preventDefault()
   const boardIndex = $(event.target).data('index')
-  console.log(boardIndex, store.game.cells[boardIndex], store.game.over)
+  // console.log(boardIndex, store.game.cells[boardIndex], store.game.over)
   if ((store.game.cells[boardIndex] === '') && store.game.over === false) {
     if (store.game.whoseturn === 'x') {
       $(event.target).text('x')
@@ -53,8 +53,8 @@ const playGame = function (event) {
       store.game.whoseturn = 'x'
     }
     checkForWinner()
-    console.log(ui)
-    console.log(api)
+    // console.log(ui)
+    // console.log(api)
     api.updateGame(boardIndex, store.game.cells[boardIndex], store.game.over)
     //   .then(function () { console.log('hello?') })
     //
