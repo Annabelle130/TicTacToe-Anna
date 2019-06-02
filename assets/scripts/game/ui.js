@@ -87,7 +87,7 @@ const onCreateSuccess = function (responseData) {
   store.game = responseData.game
   console.log(store.game)
   // add success message to content
-  $('#create-game-message').html('You started a new game!')
+  $('#create-game-message').html('You are in! Make your move!')
   $('#create-game-message').addClass('success')
 
   // use setTimeout to allow the success message to stay for 5 seconds before
