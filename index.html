@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>Anna's First Tic-Tac-Toe</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <!-- Do not add `link` tags-->
+  <link rel="shortcut icon" type="image/x-icon" href="favicon.ico">
+
+  <!-- Do not add `script` tags-->
+  <script src="public/vendor.js" type="text/javascript" charset="utf-8" defer></script>
+  <script src="public/application.js" type="text/javascript" charset="utf-8" defer></script>
+</head>
+
+<body>
+
+  <h2>Welcome to Anna's tic tac toe project</h2>
+  <p id="game-status"></p>
+  <p id="draw"></p>
+<div class="center">
+  <form id="game-create" class = "hide">
+    <input type="submit" value="Start a new game!">
+  </form>
+  <form id="get-games" class = "hide">
+       <input type="submit" value="Get Number of Games" />
+     </form>
+  <p id="finished-games"></p>
+    <p id="win-status" class="user-feedback"></p>
+</div>
+  <div id="game-display"></div>
+  <p id="error-message" class="user-feedback"></p>
+
+  <p id="create-game-message" class="user-feedback">USER MESSAGING</p>
+  <br>
+  <!-- <form id="get-games">
+    <input id="get-games" type = "button" value="show all games">
+  </form> -->
+
+
+<div class = "center">
+  <form id="sign-up">
+    <input name="credentials[email]" type="text" placeholder="email">
+    <input name="credentials[password]" type="password" placeholder="password">
+    <input name="credentials[password_confirmation]" type="password" placeholder="password confirmation">
+    <input type="submit" value="Sign Up" >
+  </form>
+  <form id="sign-in">
+    <input name="credentials[email]" type="password" placeholder="email">
+    <input name="credentials[password]" type="password" placeholder="password">
+    <input type="submit" value="Sign In">
+  </form>
+  <form id="change-password" class = "hide">
+    <input name="passwords[old]" type="password" placeholder="old password">
+    <input name="passwords[new]" type="password" placeholder="new password">
+    <input type="submit" value="Change Password">
+  </form>
+</div>
+<br>
+
+
+<div id="game-board" class="container-fluid hide">
+  <div class="row">
+    <div class="cell col-md-4" data-index="0"></div>
+    <div class="cell col-md-4" data-index="1"></div>
+    <div class="cell col-md-4" data-index = "2"></div>
+  </div>
+  <div class = "row">
+    <div class="cell col-md-4" data-index = "3"></div>
+    <div class="cell col-md-4" data-index = "4"></div>
+    <div class="cell col-md-4" data-index = "5"></div>
+  </div>
+  <div class = "row">
+    <div class="cell col-md-4" data-index = "6"></div>
+    <div class="cell col-md-4" data-index = "7"></div>
+    <div class="cell col-md-4" data-index = "8"></div>
+  </div>
+</div>
+<section>
+
+
+<div class = "center">
+<form id="sign-out" class = "hide">
+    <input type="submit" value="Sign Out" />
+</form>
+</div>
+          <!-- <p id="show-games"></p> -->
+
+          <!-- <hr> -->
+          <!-- <h2>Get One Game</h2>
+          <form id="books-show">
+            <input required type="number" min="0" name="book[id]" placeholder="Game ID Here">
+            <button type="submit">Get Game</button>
+          </form> -->
+          <!-- <hr>
+          <h2>Delete One Game</h2> -->
+          <!-- <form id="games-delete">
+            <input required type="number" name="games[id]" placeholder="Game ID Here">
+            <button type="submit">Delete Game</button>
+          </form>
+          <div id="delete-game-message" class="user-feedback"></div> -->
+  </section>
+
+
+          <!-- <h2>Update One Game</h2>
+          <form id="books-update">
+            <input required type="number" name="games[id]" id="games-id-update" placeholder="Game ID Here">
+            <input required type="text" name="games[title]" placeholder="Book Title Here">
+            <input required type="text" name="book[author]" placeholder="Book Author Here">
+            <button type="submit">Update Book</button>
+          </form>
+          <div id="update-book-message" class="user-feedback"></div> -->
+          <!-- <hr>
+          <h2>Start New Game</h2>
+          <form id="books-create">
+            <input required type="text" name="book[title]" placeholder="Book Title Here">
+            <input required type="text" name="book[author]" placeholder="Book Author Here"> -->
+            <!-- <button type="submit">Create Book</button> -->
+          <!-- </form>
+          <div id="create-book-message" class="user-feedback"></div>
+        </section>
+        <section>
+          <div id="error-message" class="user-feedback"></div>
+          <div id="book-display"></div>
+        </section>
+      </main>  <!-- <table style="width:50%"> -->
+    <!-- <tr>
+      <td><button id="myBtn1">
+          <p id="TTT1">Tic Tac Toe</p>
+        </button></td>
+      <td><button id="myBtn2">
+          <p id="TTT2">Tic Tac Toe</p>
+        </button></td>
+      <td><button id="myBtn3">
+          <p id="TTT3">Tic Tac Toe</p>
+        </button></td>
+    </tr>
+    <tr>
+      <td><button id="myBtn4">
+          <p id="TTT4">Tic Tac Toe</p>
+        </button></td>
+      <td><button id="myBtn5">
+          <p id="TTT5">Tic Tac Toe</p>
+        </button></td>
+      <td><button id="myBtn6">
+          <p id="TTT6">Tic Tac Toe</p>
+        </button></td>
+    </tr>
+    <tr>
+      <td><button id="myBtn7">
+          <p id="TTT7">Tic Tac Toe</p>
+        </button></td>
+      <td><button id="myBtn8">
+          <p id="TTT8">Tic Tac Toe</p>
+        </button></td>
+      <td><button id="myBtn9">
+          <p id="TTT9">Tic Tac Toe</p>
+        </button></td>
+    </tr> -->
+  <!-- </table> -->
+
+</body>
+
+</html>
