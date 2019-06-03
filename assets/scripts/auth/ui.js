@@ -10,7 +10,6 @@ const onSignUpSuccess = responseData => {
   $('#create-game-message').html('Sign Up Successful!')
   $('#sign-up').hide()
   $('#sign-in').show()
-  $('#game-create').show()
   $('#create-game-message').html('Please sign in to play.')
   setTimeout(() => {
     $('#create-game-message').html('')
@@ -42,6 +41,7 @@ const onSignInSuccess = responseData => {
   $('#game-create').show()
   $('#sign-out').show()
   $('#change-password').show()
+  $('#game-create').show()
   $('#create-game-message').html('You are in! Press the button above to play')
   $('form').trigger('reset')
   setTimeout(() => {
@@ -50,6 +50,7 @@ const onSignInSuccess = responseData => {
   }, 5000)
 
   store.user = responseData.user
+  $('form').trigger('reset')
   // console.log('store is', store)
 }
 
@@ -83,7 +84,9 @@ const onSignOutSuccess = () => {
   $('#change-password').hide()
   $('#sign-in').show()
   $('#sign-up').show()
+  $('#get-games').hide()
   $('form').trigger('reset')
+  $('#game-board').hide()
 }
 
 const onSignOutFailure = () => {

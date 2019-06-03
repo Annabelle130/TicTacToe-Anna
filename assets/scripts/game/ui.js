@@ -26,20 +26,13 @@ const store = require('../store.js')
 // }
 
 const onShowSuccess = function (responseData) {
-  // log the information we get back from the API so we know how we can
-  // interact with it.
-  // console.log(responseData)
-
-  // build HTML element with data for one game
+//   // console.log(responseData)
+//
+//   // build HTML element with data for one game
   const gameHTML = (`
-    <h4>Game ID: ${responseData.game.id}</h4>
-    <br>
-  `)
-
-  // replace whatever was in the game-display element with our gameHTML
+  <h4>Game ID: ${responseData.game.id}</h4>
+  <br>`)
   $('#game-display').html(gameHTML)
-
-  // reset all forms
   $('form').trigger('reset')
 }
 
@@ -73,7 +66,7 @@ const onUpdateSuccess = function (responseData) {
   setTimeout(() => {
     $('#win-status').html('')
     $('#win-status').removeClass('success')
-  }, 5000)
+  }, 2500)
 
   // reset all forms
   $('form').trigger('reset')
